@@ -1,0 +1,17 @@
+/************************************/
+/*             TYPOGRAPHY           */
+/************************************/
+@use "./../abstracts/mixins";
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-primary);
+  @include mixins.bg-linear-gradient;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  overflow-x: hidden;
+}

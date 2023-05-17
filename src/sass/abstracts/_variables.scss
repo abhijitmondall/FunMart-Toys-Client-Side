@@ -1,0 +1,64 @@
+/************************************/
+/*             VARIABLES            */
+/************************************/
+
+:root {
+  // COLORS
+  --color-primary: #282c34;
+  --color-secondary: #6dc1d9;
+  --color-tertiary: #6648a7;
+
+  --color-white: #fff;
+
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+
+  --color-grey-dark: rgba(17, 17, 17, 0.6);
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+
+  // GRADIENTS
+  --bg-gradient: linear-gradient(
+    90deg,
+    rgba(126, 144, 254, 0.1) 0%,
+    rgba(152, 115, 255, 0.1) 100%
+  );
+
+  // Shadow
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+
+  // FONT SIZES
+  --text-h1: 3.2rem;
+  --text-h2: 2.8rem;
+  --text-h3: 2.4rem;
+  --text-h4: 2.2rem;
+  --text-h5: 2rem;
+  --text-h6: 1.8rem;
+  --text-body: 1.6rem;
+
+  --text-1x: 1.4rem;
+  --text-2x: 1.8rem;
+  --text-3x: 2.6rem;
+  --text-4x: 3.2rem;
+  --text-5x: 5.2rem;
+
+  // BORDER RADIUS
+  --radius: 0.8rem;
+
+  // MEDIA QUERIES
+  --medium: 62.5em;
+  --small: 43.75em;
+
+  @media (max-width: 62.5em) {
+    // FONT SIZES
+    --text-h1: 2.4rem;
+    --text-h2: 2rem;
+    --text-h3: 1.8rem;
+    --text-h4: 1.8rem;
+    --text-h5: 1.6rem;
+    --text-h6: 1.6rem;
+  }
+}

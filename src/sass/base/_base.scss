@@ -1,0 +1,41 @@
+/************************************/
+/*          BASE SETTINGS           */
+/************************************/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+/***************************************************************/
+/* User Browser Defaults Fonts size settings according to 10px */
+/* 100 * 10 / 16 = 62.5%                                       */
+/***************************************************************/
+html {
+  font-size: 62.5%;
+
+  @media (max-width: 62.5em) {
+    font-size: 50%;
+  }
+
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-secondary),
+    var(--color-tertiary)
+  );
+  border-radius: 10rem;
+}

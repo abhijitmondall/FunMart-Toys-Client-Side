@@ -1,0 +1,17 @@
+@keyframes animateTitle {
+  0% {
+    background-image: linear-gradient(
+      to right bottom,
+      var(--color-secondary),
+      var(--color-tertiary)
+    );
+  }
+
+  100% {
+    background-image: linear-gradient(
+      to right bottom,
+      var(--color-tertiary),
+      var(--color-secondary)
+    );
+  }
+}
