@@ -1,5 +1,4 @@
 import Styles from "./Header.module.scss";
-
 import { IoIosMenu } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";

@@ -6,7 +6,8 @@
 .container {
   max-width: 140rem;
   margin: 0rem auto;
-  padding: 0 3.2rem;
+  padding: 0 5rem;
+  background-color: var(--color-grey-light-1);
 
   @media (max-width: 62.2em) {
     // padding: 0 2.5rem;

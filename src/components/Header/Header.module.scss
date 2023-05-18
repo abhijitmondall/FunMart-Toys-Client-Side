@@ -13,16 +13,17 @@
 }
 
 .header {
+  background-color: #fff;
+  border-top-left-radius: var(--radius-1x);
+  border-top-right-radius: var(--radius-1x);
+
   &__wrap {
     height: 10rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-grey-light-1);
     margin-top: 5rem;
-    padding: 0 5rem;
-    border-top-left-radius: var(--radius-1x);
-    border-top-right-radius: var(--radius-1x);
+    padding-top: 3rem;
   }
 
   &__nav {

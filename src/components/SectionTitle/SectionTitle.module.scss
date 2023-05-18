@@ -1,0 +1,36 @@
+@use "./../../sass/abstracts/mixins";
+
+.section {
+  &__title-wrap {
+    position: relative;
+    margin-bottom: 1.6rem;
+  }
+
+  &__line {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+    @include mixins.bg-linear-gradient;
+  }
+
+  &__title {
+    width: 30%;
+    font-size: var(--text-h2);
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    background-color: var(--color-grey-light-1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    overflow: hidden;
+    // @include mixins.title;
+  }
+}

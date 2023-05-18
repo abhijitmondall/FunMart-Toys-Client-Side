@@ -1,0 +1,35 @@
+@use "./../../../../sass/abstracts/mixins";
+
+.gallery {
+  &__wrap {
+    padding-top: 12rem;
+  }
+
+  &__title {
+    font-size: var(--text-h2);
+    text-align: center;
+    @include mixins.title;
+  }
+
+  &__images {
+    max-width: 90%;
+    margin: 0 auto;
+    padding-top: 3rem;
+
+    div {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      justify-content: center;
+      align-items: center;
+    }
+
+    img {
+      width: 30rem;
+      height: 18rem;
+      object-fit: cover;
+      border: 1rem solid var(--color-secondary);
+      margin: 0.5rem;
+      border-radius: var(--radius);
+    }
+  }
+}

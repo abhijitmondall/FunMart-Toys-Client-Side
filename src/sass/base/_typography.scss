@@ -4,12 +4,14 @@
 @use "./../abstracts/mixins";
 
 body {
-  font-family: "Inter", sans-serif;
+  // font-family: "Inter", sans-serif;
+  font-family: "Marcellus", serif;
   font-size: var(--text-body);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.6;
   color: var(--color-primary);
-  @include mixins.bg-linear-gradient;
+  // @include mixins.bg-linear-gradient;
+  background-color: #d5d9e6;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
