@@ -1,0 +1,32 @@
+@use "./../../sass/abstracts/mixins";
+
+.header {
+  &__logo-wrap {
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    border: 3px double var(--color-secondary);
+    border-radius: 50%;
+  }
+
+  &__logo {
+    font-size: 3rem;
+    line-height: 1.1;
+    color: var(--color-tertiary);
+    opacity: 0.9;
+  }
+
+  &__logo-text {
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.1;
+    margin-top: -0.7rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    @include mixins.title;
+  }
+}
