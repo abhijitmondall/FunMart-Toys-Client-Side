@@ -48,7 +48,7 @@ const Footer = () => {
             </div>
           </div>
           <div className={Styles["footer__text"]}>
-            <p>@2023 RecipeRealm. All Rights Reserved</p>
+            <p>@2023 FunMart Toys. All Rights Reserved</p>
           </div>
         </section>
       </footer>
