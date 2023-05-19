@@ -1,22 +1,27 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SectionTitle from "../../../SectionTitle/SectionTitle";
 import Styles from "./ShopByCategory.module.scss";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useFetch from "../../../../hooks/useFetch";
 import ToyCard from "../../../ToyCard/ToyCard";
+import { AuthContext } from "../../../../context/AuthProvider";
+import Spinner from "../../../Spinner/Spinner";
 
 const ShopByCategory = () => {
   const [toys, setToys] = useState([]);
   const [subCategory, setSubCategory] = useState("Racing Cars");
+  const { loading, setLoading } = useContext(AuthContext);
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       const data = await useFetch(
         `toys?fields=toyPicture,toyName,price,ratings,subCategory&subCategory=${subCategory}`
       );
       console.log(data.toys);
       setToys(data.toys);
+      setLoading(false);
     })();
   }, [subCategory]);
 
@@ -26,6 +31,7 @@ const ShopByCategory = () => {
   };
 
   const toysByCategory = () => {
+    if (loading) return <Spinner />;
     return toys.map((toy) => <ToyCard key={toy._id} toy={toy} />);
   };
 
