@@ -11,13 +11,9 @@ const Gallery = () => {
 
   useEffect(() => {
     (async () => {
-      const data = await useFetch(
-        `https://fun-mart-toys-api-v1.vercel.app/api/v1/toys?fields=toyPicture&limit=9`
-      );
+      const data = await useFetch(`toys?fields=toyPicture,toyName&limit=9`);
 
       setToyPicture(data.toys);
-
-      console.log(data.toys);
     })();
   }, []);
   return (
@@ -29,7 +25,7 @@ const Gallery = () => {
           <LightGallery speed={500}>
             {toyPicture.map((el) => (
               <a key={el._id} href={el.toyPicture}>
-                <img alt="img1" src={el.toyPicture} />
+                <img alt={el.toyName} src={el.toyPicture} />
               </a>
             ))}
           </LightGallery>
