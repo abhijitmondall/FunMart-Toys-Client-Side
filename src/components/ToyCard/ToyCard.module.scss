@@ -70,6 +70,12 @@
     @include mixins.title;
   }
 
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
   &__price {
     font-size: var(--text-2x);
     font-weight: bold;

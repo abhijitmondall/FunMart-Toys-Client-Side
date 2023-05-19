@@ -1,0 +1,43 @@
+@use "./../../../sass/abstracts/mixins";
+
+.login {
+  padding: 3rem 0 !important;
+  padding-bottom: 0 !important;
+  background-color: var(--color-grey-light-1);
+}
+
+.login-wrap {
+  width: 100%;
+  background: var(--bg-gradient);
+  padding: 3rem 0;
+}
+
+.form {
+  width: 50rem;
+  margin: 6rem auto;
+
+  @media (max-width: 62.2em) {
+    width: 90%;
+  }
+
+  &__title {
+    font-size: var(--text-h2);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3.2rem;
+
+    @include mixins.title;
+  }
+
+  &__input {
+    margin-bottom: 1.6rem;
+  }
+
+  &__btn {
+    margin-top: 1.6rem;
+  }
+}
+
+.register-now {
+  margin-top: 1.6rem;
+}

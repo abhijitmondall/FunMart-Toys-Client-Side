@@ -18,7 +18,7 @@ const ToyCard = ({ toy }) => {
 
       <div className={Styles["toy__content"]}>
         <h5 className={Styles["toy__name"]}>{toyName}</h5>
-        <div className="d-flex">
+        <div className={Styles["toy__info"]}>
           <div>
             <StarRatings
               rating={ratings}
