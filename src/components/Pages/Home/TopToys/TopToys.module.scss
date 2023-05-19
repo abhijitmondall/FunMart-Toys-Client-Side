@@ -1,0 +1,11 @@
+.topToys {
+  background: var(--color-grey-light-1);
+
+  &__wrap {
+    padding: 6rem 0;
+  }
+
+  &__title {
+    background-color: var(--color-grey-light-1);
+  }
+}

@@ -1,9 +1,10 @@
-import Card from "../../../../UI/Card/Card";
-import Styles from "./Toy.module.scss";
+import Card from "../UI/Card/Card";
+import Styles from "./ToyCard.module.scss";
 import StarRatings from "react-star-ratings";
 
-const Toy = ({ toy }) => {
+const ToyCard = ({ toy }) => {
   const { toyPicture, toyName, price, ratings } = toy;
+
   return (
     <Card className={{ className: `${Styles["toy-card"]}` }}>
       <div className={Styles["toy__fig"]}>
@@ -18,7 +19,7 @@ const Toy = ({ toy }) => {
       <div className={Styles["toy__content"]}>
         <h5 className={Styles["toy__name"]}>{toyName}</h5>
         <div className="d-flex">
-          <p>
+          <div>
             <StarRatings
               rating={ratings}
               starRatedColor="#f8bd23 "
@@ -27,7 +28,7 @@ const Toy = ({ toy }) => {
               starSpacing=".1rem"
             />
             ( {ratings})
-          </p>
+          </div>
           <p className={Styles["toy__price"]}>${price}</p>
         </div>
       </div>
@@ -35,4 +36,4 @@ const Toy = ({ toy }) => {
   );
 };
 
-export default Toy;
+export default ToyCard;

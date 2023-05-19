@@ -4,7 +4,7 @@ import Styles from "./ShopByCategory.module.scss";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useFetch from "../../../../hooks/useFetch";
-import Toy from "./Toy/Toy";
+import ToyCard from "../../../ToyCard/ToyCard";
 
 const ShopByCategory = () => {
   const [toys, setToys] = useState([]);
@@ -26,7 +26,7 @@ const ShopByCategory = () => {
   };
 
   const toysByCategory = () => {
-    return toys.map((toy) => <Toy key={toy._id} toy={toy} />);
+    return toys.map((toy) => <ToyCard key={toy._id} toy={toy} />);
   };
 
   return (
