@@ -10,7 +10,7 @@
   background-color: var(--color-grey-light-1);
 
   @media (max-width: 62.2em) {
-    // padding: 0 2.5rem;
+    padding: 0 2.5rem;
   }
 }
 
@@ -44,7 +44,7 @@
 .error-message {
   font-size: inherit;
   font-weight: inherit;
-  color: var(--color-secondary);
+  color: red;
 }
 
 .icon-1x {
