@@ -8,7 +8,7 @@ const Logo = () => {
         <span className={Styles["header__logo"]}>
           <MdToys />
         </span>
-        <h3 className={Styles["header__logo-text"]}>FunMart Toys</h3>
+        <p className={Styles["header__logo-text"]}>FunMart Toys</p>
       </div>
     </>
   );
