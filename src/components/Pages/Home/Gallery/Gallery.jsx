@@ -7,15 +7,15 @@ import "lightgallery/scss/lg-zoom.scss";
 import SectionTitle from "../../../SectionTitle/SectionTitle";
 
 const Gallery = () => {
-  const [toyPicture, setToyPicture] = useState([]);
+  const [toyInfo, setToyInfo] = useState([]);
 
   useEffect(() => {
     (async () => {
       const data = await useFetch(`toys?fields=toyPicture,toyName&limit=9`);
-
-      setToyPicture(data.toys);
+      setToyInfo(data.toys);
     })();
   }, []);
+
   return (
     <section className={`${Styles["gallery"]} container`}>
       <div className={Styles["gallery__wrap"]}>
@@ -23,7 +23,7 @@ const Gallery = () => {
 
         <div className={Styles["gallery__images"]}>
           <LightGallery speed={500}>
-            {toyPicture.map((el) => (
+            {toyInfo.map((el) => (
               <a key={el._id} href={el.toyPicture}>
                 <img alt={el.toyName} src={el.toyPicture} />
               </a>

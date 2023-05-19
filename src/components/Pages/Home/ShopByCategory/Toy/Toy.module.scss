@@ -1,0 +1,71 @@
+@use "./../../../../../sass/abstracts/mixins";
+
+.toy-card {
+  padding: 0;
+  border: 1px solid var(--color-grey-light-3);
+  background-color: var(--color-white);
+  box-shadow: none;
+}
+
+.toy {
+  &__fig {
+    height: 18rem;
+    position: relative;
+
+    &:hover .toy__btn-wrap {
+      height: 5rem;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 18rem;
+    // object-fit: cover;
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+  }
+
+  &__btn-wrap {
+    display: flex;
+    position: absolute;
+    height: 0;
+    bottom: -1.6rem;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    button {
+      width: 50%;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  &__btn-view {
+    color: var(--color-white);
+    background-color: var(--color-tertiary);
+  }
+
+  &__btn-cart {
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+  }
+
+  &__content {
+    padding: 3rem;
+  }
+
+  &__name {
+    font-size: var(--text-h5);
+    margin-bottom: 0.4rem;
+
+    @include mixins.title;
+  }
+
+  &__price {
+    font-size: var(--text-2x);
+    font-weight: bold;
+    color: var(--color-tertiary);
+  }
+}
