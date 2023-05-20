@@ -16,6 +16,7 @@ const ShopByCategory = () => {
   useEffect(() => {
     (async () => {
       setLoading(true);
+      // if([''])
       const data = await useFetch(
         `toys?fields=toyPicture,toyName,price,ratings,subCategory&subCategory=${subCategory}`
       );
@@ -31,6 +32,9 @@ const ShopByCategory = () => {
 
   const toysByCategory = () => {
     if (loading) return <Spinner />;
+
+    if (toys.length === 0) return "No Toys available in this category";
+
     return toys.map((toy) => <ToyCard key={toy._id} toy={toy} />);
   };
 

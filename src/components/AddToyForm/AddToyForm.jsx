@@ -1,14 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
 import Styles from "./AddToyForm.module.scss";
 import { AuthContext } from "../../context/AuthProvider";
 import useFetch from "../../hooks/useFetch";
+import Swal from "sweetalert2";
 
-const AddToyForm = () => {
-  const { user } = useContext(AuthContext);
-
-  const [toy, setToy] = useState([]);
+const AddToyForm = ({ info, children }) => {
+  const { user, error, setError } = useContext(AuthContext);
 
   const handleAddToyForm = async (e) => {
     e.preventDefault();
@@ -37,28 +36,27 @@ const AddToyForm = () => {
     };
 
     try {
-      await useFetch(`toys`, {
+      const res = await useFetch(`toys`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(addToyInfo),
       });
+      if (res) Swal.fire("Successfully Added A New Toy!");
+      console.log(res);
+      form.reset();
     } catch (err) {
+      Swal.fire(`${err.message}`);
+      setError(err.message);
       console.log(err);
     }
   };
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const data = await useFetch(`toys?fields=toyPicture,toyName&limit=9`);
-  //     setToy(data.toys);
-  //   })();
-  // }, []);
-
   return (
     <>
       <form onSubmit={handleAddToyForm} className={Styles["form"]}>
+        {error && <p className="error-message">{error}</p>}
         <div className={Styles["form__input"]}>
           <Input
             inputObj={{
@@ -89,6 +87,7 @@ const AddToyForm = () => {
               type: "text",
               placeholder: "Picture URL",
               name: "toyPicture",
+              defaultValue: `${info?.toyPicture || ""}`,
             }}
           />
         </div>
@@ -100,6 +99,7 @@ const AddToyForm = () => {
               placeholder: "Toy Name",
               name: "toyName",
               required: true,
+              defaultValue: `${info?.toyName || ""}`,
             }}
           />
         </div>
@@ -108,8 +108,9 @@ const AddToyForm = () => {
           className={`${Styles["form__select"]} ${Styles["form__input"]}`}
           name="subCategory"
           id="subCategory"
+          defaultValue={info?.subCategory || "Select Sub-Category"}
         >
-          <option>Select Sub-Category</option>
+          <option disabled>Select Sub-Category</option>
           <option value="Racing Cars">Racing Cars</option>
           <option value="Convertible Cars">Convertible Cars</option>
           <option value="Monster Trucks">Monster Trucks</option>
@@ -122,6 +123,7 @@ const AddToyForm = () => {
               placeholder: "Toy Price",
               name: "toyPrice",
               required: true,
+              defaultValue: `${info?.toyPrice || ""}`,
             }}
           />
         </div>
@@ -132,6 +134,7 @@ const AddToyForm = () => {
               type: "text",
               placeholder: "Toy Rating",
               name: "toyRatings",
+              defaultValue: `${info?.toyRatings || ""}`,
             }}
           />
         </div>
@@ -143,6 +146,7 @@ const AddToyForm = () => {
               placeholder: "Available quantity",
               name: "availableQuantity",
               required: true,
+              defaultValue: `${info?.availableQuantity || ""}`,
             }}
           />
         </div>
@@ -154,13 +158,14 @@ const AddToyForm = () => {
           cols="20"
           rows="6"
           placeholder="Toy's Detail Description"
+          defaultValue={info?.description || ""}
         ></textarea>
 
         <Button
           btnObj={{ type: "submit" }}
           className={{ className: Styles["form__btn"] }}
         >
-          Add A Toy
+          {children}
         </Button>
       </form>
     </>

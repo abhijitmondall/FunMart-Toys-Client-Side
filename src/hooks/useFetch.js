@@ -9,13 +9,13 @@ const useFetch = async (route, options) => {
       }
     );
 
-    if (!res.ok) throw new Error(res.message);
-
     const data = await res.json();
+    if (!res.ok) throw new Error(data.message);
 
     return data;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
 

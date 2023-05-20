@@ -5,7 +5,7 @@ const AddToy = () => {
   return (
     <section className={`${Styles["addToy"]} container`}>
       <div className={Styles["addToy__wrap"]}>
-        <AddToyForm />
+        <AddToyForm>Add A Toy</AddToyForm>
       </div>
     </section>
   );
