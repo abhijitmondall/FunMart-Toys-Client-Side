@@ -42,6 +42,7 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs />,
+        loader: () => useFetch("blogs"),
       },
 
       {

@@ -27,7 +27,6 @@ const AllToys = () => {
 
     const form = e.target;
     setToyName(form.search.value);
-    console.log(form.search.value);
   };
 
   return (
