@@ -1,9 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import Card from "../UI/Card/Card";
 import Styles from "./ToyCard.module.scss";
 import StarRatings from "react-star-ratings";
 
 const ToyCard = ({ toy }) => {
-  const { toyPicture, toyName, price, ratings } = toy;
+  const { _id, toyPicture, toyName, price, ratings } = toy;
+  const navigate = useNavigate();
+
+  const handleToyViewBTN = (id) => {
+    navigate(`toy/${id}`, { replace: true });
+  };
 
   return (
     <Card className={{ className: `${Styles["toy-card"]}` }}>
@@ -11,7 +17,13 @@ const ToyCard = ({ toy }) => {
         <img src={toyPicture} alt={toyName} className={Styles["toy__img"]} />
 
         <div className={Styles["toy__btn-wrap"]}>
-          <button className={`${Styles["toy__btn-view"]}`}>View</button>
+          <button
+            onClick={() => handleToyViewBTN(_id)}
+            className={`${Styles["toy__btn-view"]}`}
+          >
+            View
+          </button>
+
           <button className={`${Styles["toy__btn-cart"]}`}>Add To Cart</button>
         </div>
       </div>

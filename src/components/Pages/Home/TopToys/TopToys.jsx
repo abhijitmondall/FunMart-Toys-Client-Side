@@ -17,7 +17,7 @@ const TopToys = () => {
       const data = await useFetch(
         `toys?sort=-ratings&fields=toyPicture,toyName,price,ratings,subCategory&limit=10`
       );
-      console.log(data.toys);
+
       setToys(data.toys);
     })();
   }, []);

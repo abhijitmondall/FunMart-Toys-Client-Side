@@ -9,6 +9,8 @@ import AddToy from "../components/Pages/AddToy/AddToy";
 import Login from "../components/Pages/Login/Login";
 import Register from "../components/Pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
+import ToyDetails from "../components/Pages/ToyDetails/ToyDetails";
+import useFetch from "../hooks/useFetch";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,16 @@ const router = createBrowserRouter([
       {
         path: "/allToys",
         element: <AllToys />,
+      },
+
+      {
+        path: "/toy/:id",
+        element: (
+          <PrivateRoutes>
+            <ToyDetails />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) => useFetch(`toys/${params.id}`),
       },
 
       {

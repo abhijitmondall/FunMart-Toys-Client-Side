@@ -19,7 +19,7 @@ const ShopByCategory = () => {
       const data = await useFetch(
         `toys?fields=toyPicture,toyName,price,ratings,subCategory&subCategory=${subCategory}`
       );
-      console.log(data.toys);
+
       setToys(data.toys);
       setLoading(false);
     })();
@@ -27,7 +27,6 @@ const ShopByCategory = () => {
 
   const handleTabs = (e) => {
     setSubCategory(e.target.textContent.trim());
-    console.log(e.target.textContent.trim());
   };
 
   const toysByCategory = () => {
