@@ -1,8 +1,13 @@
+import AddToyForm from "../../AddToyForm/AddToyForm";
+import Styles from "./AddToy.module.scss";
+
 const AddToy = () => {
   return (
-    <div>
-      <h1>Add toy</h1>
-    </div>
+    <section className={`${Styles["addToy"]} container`}>
+      <div className={Styles["addToy__wrap"]}>
+        <AddToyForm />
+      </div>
+    </section>
   );
 };
 

@@ -23,8 +23,8 @@ const Toys = ({ toy }) => {
       <div>{sellerName}</div>
       <div>{toyName}</div>
       <div>{subCategory}</div>
-      <div>{price}</div>
-      <div>{availableQuantity}</div>
+      <div className="text-center">${price}</div>
+      <div className="text-center">{availableQuantity}</div>
       <div>
         <Link to={`/toy/${_id}`}>
           <Button className={{ className: `${Styles["toys__view-btn"]}` }}>

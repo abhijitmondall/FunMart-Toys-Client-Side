@@ -34,13 +34,12 @@ const AllToys = () => {
   return (
     <section className={`${Styles["toys"]} container`}>
       <div className={Styles["toys__wrap"]}>
-        <h1>all toys</h1>
         <form onSubmit={handleToysSearch} className={Styles["search"]}>
           <input
             type="text"
             name="search"
             className={Styles["search__input"]}
-            placeholder="Search Toys By Name"
+            placeholder="Search Toys By Toy Name"
           />
           <button type="submit" className={Styles["search__btn"]}>
             <svg className={Styles["search__icon"]}>
@@ -57,8 +56,8 @@ const AllToys = () => {
             <div>Seller Name</div>
             <div>Toy Name</div>
             <div>Sub-category</div>
-            <div>Price</div>
-            <div>Available Quantity</div>
+            <div className="text-center">Price</div>
+            <div className="text-center">Available Quantity</div>
             <div></div>
           </div>
           {loading ? (
