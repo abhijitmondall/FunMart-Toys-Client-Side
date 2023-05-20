@@ -54,4 +54,18 @@
   &__form--wrap {
     background: var(--color-grey-light-2) !important;
   }
+
+  &__sort {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__sortBy {
+    font-size: var(--text-1x);
+    font-weight: bold;
+    padding: 1.2rem 2rem;
+    margin-top: 3rem;
+    border-radius: var(--radius);
+    outline: none;
+  }
 }

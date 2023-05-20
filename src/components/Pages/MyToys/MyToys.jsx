@@ -13,15 +13,16 @@ const MyToys = () => {
   const [toys, setToys] = useState([]);
   const [toy, setToy] = useState([]);
   const [toyId, setToyId] = useState(null);
+  const [sortBy, setSortBy] = useState("");
   const { user, loading, setLoading } = useContext(AuthContext);
   const [isPopup, setIsPopup] = useState(true);
 
   useEffect(() => {
     (async () => {
       let data = await useFetch(
-        `toys${
-          toyId ? `/${toyId}` : ""
-        }?fields=sellerName,toyPicture,toyName,subCategory,price,availableQuantity&sellerEmail=${
+        `toys${toyId ? `/${toyId}` : ""}?${
+          sortBy ? `sort=${sortBy}` : ""
+        }fields=sellerName,toyPicture,toyName,subCategory,price,availableQuantity&sellerEmail=${
           user.email
         }`
       );
@@ -30,7 +31,7 @@ const MyToys = () => {
       setToy(data.toy);
       setLoading(false);
     })();
-  }, [toyId, isPopup]);
+  }, [toyId, isPopup, sortBy]);
 
   const handleToyUpdate = (id) => {
     setToyId(id);
@@ -63,6 +64,16 @@ const MyToys = () => {
     setToyId(null);
   };
 
+  const handleSortBy = (e) => {
+    const val = e.target.value;
+
+    if (val === "price&" || val === "-price&") {
+      setSortBy(val);
+    } else {
+      setSortBy("");
+    }
+  };
+
   return (
     <section className={`${Styles["myToys"]} container`}>
       <div className={Styles["myToys__wrap"]}>
@@ -70,15 +81,34 @@ const MyToys = () => {
           My Toys
         </SectionTitle>
 
+        <div className={Styles["myToys__sort"]}>
+          <select
+            onChange={handleSortBy}
+            name="sort"
+            id="sort"
+            className={Styles["myToys__sortBy"]}
+          >
+            <option> Sort By Price</option>
+            <option value="price&">Low To Hight</option>
+            <option value="-price&">High To Low</option>
+          </select>
+        </div>
+
         <div className={Styles["myToys__lists-wrap"]}>
-          {toys?.map((toy) => (
-            <MyToyLists
-              key={toy._id}
-              toy={toy}
-              handleToyUpdate={handleToyUpdate}
-              handleToyDelete={handleToyDelete}
-            />
-          ))}
+          {toys?.length !== 0 ? (
+            toys?.map((toy) => (
+              <MyToyLists
+                key={toy._id}
+                toy={toy}
+                handleToyUpdate={handleToyUpdate}
+                handleToyDelete={handleToyDelete}
+              />
+            ))
+          ) : (
+            <p className="text-center text-2x text-bold">
+              You did not add any Toys yet!
+            </p>
+          )}
         </div>
 
         {!isPopup &&
