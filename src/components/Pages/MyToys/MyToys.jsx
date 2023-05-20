@@ -38,21 +38,24 @@ const MyToys = () => {
   };
 
   const handleToyDelete = async (id) => {
-    let res = await fetch(
-      `https://fun-mart-toys-api-v1.vercel.app/api/v1/toys/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({}),
-      }
-    );
-    // const data = await res.json();
+    const confirm = await Swal.fire({
+      title: "Do you want to DELETE this Toy?",
+      showDenyButton: true,
+      confirmButtonText: "YES",
+    });
 
-    const updatedToys = toys.filter((toy) => toy._id !== id);
-    setToys(updatedToys);
-    console.log(id, updatedToys);
+    if (confirm.isConfirmed) {
+      await fetch(`https://fun-mart-toys-api-v1.vercel.app/api/v1/toys/${id}`, {
+        method: "DELETE",
+      });
+
+      const updatedToys = toys.filter((toy) => toy._id !== id);
+      setToys(updatedToys);
+
+      Swal.fire({
+        title: "Successfully Deleted!",
+      });
+    }
   };
 
   const handlePopup = () => {
