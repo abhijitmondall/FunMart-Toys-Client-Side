@@ -1,0 +1,35 @@
+@use "./../../../../sass/abstracts/mixins";
+
+.promo {
+  background-color: #faf7f0 !important;
+
+  &__wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    grid-gap: 10rem;
+    padding: 3.2rem;
+  }
+
+  &__info {
+    padding: 0 3.2rem;
+
+    &--1 {
+      border-right: 2px dashed #ff74b1;
+    }
+
+    &--2 {
+      border-right: 2px dashed #ff74b1;
+    }
+  }
+
+  &__fig {
+    font-size: 5.5rem;
+    line-height: 1;
+    color: #ff74b1;
+  }
+
+  &__title {
+    font-size: var(--text-h5);
+  }
+}

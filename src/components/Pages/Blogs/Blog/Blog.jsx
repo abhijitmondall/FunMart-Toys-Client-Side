@@ -2,12 +2,12 @@ import Styles from "./Blog.module.scss";
 import Card from "../../../UI/Card/Card";
 
 const Blog = ({ blog }) => {
-  const { id, question, answer } = blog;
+  const { question, answer } = blog;
   return (
     <>
       <Card className={{ className: `${Styles["blog"]}` }}>
         <h2 className={Styles["blog__question"]}>
-          <span>Q{id}:</span> {question}
+          <span>Q:</span> {question}
         </h2>
         <p className={Styles["blog__answer"]}>
           <span>Ans:</span> {answer}

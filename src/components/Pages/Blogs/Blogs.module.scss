@@ -7,51 +7,15 @@
     padding: 9rem 0;
   }
 
-  &__title-wrap {
-    position: relative;
-    margin-bottom: 6rem;
-
-    button {
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      border: none;
-    }
-  }
-
-  &__line {
-    width: 70%;
-    height: 2px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9;
-    @include mixins.bg-linear-gradient;
-  }
-
   &__title {
-    width: 36%;
-    font-size: var(--text-h2);
-    font-weight: 800;
-    text-align: center;
-    text-transform: uppercase;
-    color: var(--color-secondary);
     background-color: var(--color-grey-light-2);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 999;
-    overflow: hidden;
-    // @include mixins.title;
   }
 
   &__content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2.5rem;
+    margin-top: 6rem;
 
     @media (max-width: 62.5em) {
       grid-template-columns: 1fr;
