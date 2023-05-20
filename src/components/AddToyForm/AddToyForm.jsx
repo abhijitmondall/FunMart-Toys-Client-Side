@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Button from "../UI/Button/Button";
 import Input from "../UI/Input/Input";
 import Styles from "./AddToyForm.module.scss";
@@ -6,8 +6,10 @@ import { AuthContext } from "../../context/AuthProvider";
 import useFetch from "../../hooks/useFetch";
 import Swal from "sweetalert2";
 
-const AddToyForm = ({ info, children }) => {
+const AddToyForm = ({ info, children, methodType, className }) => {
   const { user, error, setError } = useContext(AuthContext);
+
+  const [val, setVal] = useState(null);
 
   const handleAddToyForm = async (e) => {
     e.preventDefault();
@@ -36,15 +38,22 @@ const AddToyForm = ({ info, children }) => {
     };
 
     try {
-      const res = await useFetch(`toys`, {
-        method: "POST",
+      const res = await useFetch(`toys${info?._id ? `/${info?._id}` : ""}`, {
+        method: methodType ? `${methodType}` : "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(addToyInfo),
       });
-      if (res) Swal.fire("Successfully Added A New Toy!");
-      console.log(res);
+      if (res)
+        Swal.fire(
+          `${
+            info
+              ? "Successfully Updated The Toy!"
+              : "Successfully Added A New Toy!"
+          }`
+        );
+
       form.reset();
     } catch (err) {
       Swal.fire(`${err.message}`);
@@ -53,9 +62,16 @@ const AddToyForm = ({ info, children }) => {
     }
   };
 
+  const handleOnChangeVal = (e) => {
+    setVal(e.target.value);
+  };
+
   return (
     <>
-      <form onSubmit={handleAddToyForm} className={Styles["form"]}>
+      <form
+        onSubmit={handleAddToyForm}
+        className={`${Styles["form"]} ${className?.className || ""}`}
+      >
         {error && <p className="error-message">{error}</p>}
         <div className={Styles["form__input"]}>
           <Input
@@ -105,12 +121,13 @@ const AddToyForm = ({ info, children }) => {
         </div>
 
         <select
-          className={`${Styles["form__select"]} ${Styles["form__input"]}`}
+          onChange={handleOnChangeVal}
+          className={`${Styles["form__select"]} ${className?.className || ""}`}
           name="subCategory"
           id="subCategory"
-          defaultValue={info?.subCategory || "Select Sub-Category"}
+          value={val || info?.subCategory}
         >
-          <option disabled>Select Sub-Category</option>
+          <option>Select Sub-Category</option>
           <option value="Racing Cars">Racing Cars</option>
           <option value="Convertible Cars">Convertible Cars</option>
           <option value="Monster Trucks">Monster Trucks</option>
@@ -123,7 +140,7 @@ const AddToyForm = ({ info, children }) => {
               placeholder: "Toy Price",
               name: "toyPrice",
               required: true,
-              defaultValue: `${info?.toyPrice || ""}`,
+              defaultValue: `${info?.price || ""}`,
             }}
           />
         </div>
@@ -134,7 +151,7 @@ const AddToyForm = ({ info, children }) => {
               type: "text",
               placeholder: "Toy Rating",
               name: "toyRatings",
-              defaultValue: `${info?.toyRatings || ""}`,
+              defaultValue: `${info?.ratings || ""}`,
             }}
           />
         </div>

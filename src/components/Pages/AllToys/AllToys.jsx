@@ -13,12 +13,11 @@ const AllToys = () => {
 
   useEffect(() => {
     (async () => {
-      setLoading(true);
       const data = await useFetch(
         `toys?fields=sellerName,toyPicture,toyName,subCategory,price,availableQuantity&limit=20&text[search]=${toyName}`
       );
       setToys(data.toys);
-      console.log(data.toys);
+
       setLoading(false);
     })();
   }, [toyName]);

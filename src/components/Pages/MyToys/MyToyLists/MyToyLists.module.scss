@@ -1,0 +1,38 @@
+.myToys {
+  &__lists {
+    font-size: var(--text-1x);
+    text-transform: uppercase;
+    font-weight: bold;
+    background: var(--bg-gradient);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 3.2rem;
+    align-items: center;
+    padding: 1.6rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid var(--color-grey-light-4);
+    border-radius: var(--radius);
+  }
+
+  &__img {
+    width: 100%;
+    border: var(--radius);
+  }
+
+  &__view-btn {
+    width: 5rem;
+    height: 5rem;
+    padding: 0.6rem;
+    font-size: var(--text-2x);
+    color: var(--color-tertiary);
+    border: 1px solid var(--color-secondary);
+    border-radius: 50%;
+    margin-right: 2rem;
+    background: var(--bg-gradient);
+
+    &:last-child {
+      color: rgb(247, 80, 80);
+      border: 1px solid rgb(247, 80, 80);
+    }
+  }
+}
