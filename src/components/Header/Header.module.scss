@@ -28,6 +28,12 @@
     padding: 3rem 0;
   }
 
+  &__logo {
+    a {
+      text-decoration: none;
+    }
+  }
+
   &__nav {
     display: flex;
     justify-content: flex-end;

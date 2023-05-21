@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Card from "../../UI/Card/Card";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdLogIn } from "react-icons/io";
+import PageTitle from "../../PageTitle/PageTitle";
 
 const Login = () => {
   const { user, login, error, setError, loginWithGoogle } =
@@ -48,6 +49,8 @@ const Login = () => {
 
   return (
     <section className={`${Styles["login"]} container`}>
+      <PageTitle>FunMart Toys | Login</PageTitle>
+
       <div className={`${Styles["login-wrap"]}`}>
         {user ? (
           <div className="d-flex text-2x color-title p-y">

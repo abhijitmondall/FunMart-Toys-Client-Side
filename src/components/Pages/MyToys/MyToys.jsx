@@ -8,13 +8,14 @@ import AddToyForm from "../../AddToyForm/AddToyForm";
 import { createPortal } from "react-dom";
 import { RxCross2 } from "react-icons/rx";
 import Swal from "sweetalert2";
+import PageTitle from "../../PageTitle/PageTitle";
 
 const MyToys = () => {
   const [toys, setToys] = useState([]);
   const [toy, setToy] = useState([]);
   const [toyId, setToyId] = useState(null);
   const [sortBy, setSortBy] = useState("");
-  const { user, loading, setLoading } = useContext(AuthContext);
+  const { user, setLoading } = useContext(AuthContext);
   const [isPopup, setIsPopup] = useState(true);
 
   useEffect(() => {
@@ -76,6 +77,8 @@ const MyToys = () => {
 
   return (
     <section className={`${Styles["myToys"]} container`}>
+      <PageTitle>FunMart Toys | My Toys</PageTitle>
+
       <div className={Styles["myToys__wrap"]}>
         <SectionTitle className={{ className: `${Styles["myToys__title"]}` }}>
           My Toys

@@ -1,3 +1,4 @@
+import PageTitle from "../../PageTitle/PageTitle";
 import SectionTitle from "../../SectionTitle/SectionTitle";
 import Blog from "./Blog/Blog";
 import Styles from "./Blogs.module.scss";
@@ -8,6 +9,8 @@ const Blogs = () => {
 
   return (
     <section className={`${Styles["blogs"]} container`}>
+      <PageTitle>FunMart Toys | Blogs</PageTitle>
+
       <div className={Styles["blogs__wrap"]}>
         <SectionTitle className={{ className: `${Styles["blogs__title"]}` }}>
           Our Blogs

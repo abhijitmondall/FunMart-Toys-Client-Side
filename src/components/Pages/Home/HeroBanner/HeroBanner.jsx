@@ -17,12 +17,12 @@ const HeroBanner = () => {
               Fuel Your Child's Imagination with Toy Cars at FunMart Toys!
             </span>
           </h1>
-          <p className={Styles["hero__subtitle"]}>
+          <p className={Styles["hero__subtitle"]} data-aos="zoom-in">
             Unleash the Joy of Speed and Adventure with our <br /> Exciting
             Collection of Toy Cars!
           </p>
 
-          <div className={Styles["hero__btn"]}>
+          <div className={Styles["hero__btn"]} data-aos="zoom-in">
             <Link to="/allToys">
               <span>
                 Shop Now <BsArrowUpRight />

@@ -6,6 +6,7 @@ import Spinner from "../../Spinner/Spinner";
 import { AuthContext } from "../../../context/AuthProvider";
 import Icons from "./../../../assets/icons.svg";
 import SectionTitle from "../../SectionTitle/SectionTitle";
+import PageTitle from "../../PageTitle/PageTitle";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
@@ -33,6 +34,7 @@ const AllToys = () => {
 
   return (
     <section className={`${Styles["toys"]} container`}>
+      <PageTitle>FunMart Toys | All Toys</PageTitle>;
       <div className={Styles["toys__wrap"]}>
         <SectionTitle className={{ className: `${Styles["toys__title"]}` }}>
           All Toys

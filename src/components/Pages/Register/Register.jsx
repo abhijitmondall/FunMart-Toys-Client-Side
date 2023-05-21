@@ -8,6 +8,7 @@ import useInput from "../../../hooks/useInput";
 import Card from "../../UI/Card/Card";
 import { IoMdLogIn } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
+import PageTitle from "../../PageTitle/PageTitle";
 
 const Register = () => {
   const { user, createUser, updateUserProfile, setError, loginWithGoogle } =
@@ -102,6 +103,10 @@ const Register = () => {
 
   return (
     <section className={`${Styles["register"]} container`}>
+    
+        <PageTitle>FunMart Toys | Register</PageTitle>
+  
+
       <div className={Styles["register-wrap"]}>
         {user ? (
           <div className="d-flex text-2x color-title p-y">

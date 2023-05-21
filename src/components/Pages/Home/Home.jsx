@@ -1,6 +1,6 @@
+import PageTitle from "../../PageTitle/PageTitle";
 import Gallery from "./Gallery/Gallery";
 import HeroBanner from "./HeroBanner/HeroBanner";
-import Styles from "./Home.module.scss";
 import PromoSection from "./PromoSection/PromoSection";
 import ShopByCategory from "./ShopByCategory/ShopByCategory";
 import TopToys from "./TopToys/TopToys";
@@ -20,6 +20,7 @@ const Home = () => {
 
   return (
     <>
+      <PageTitle>FunMart Toys | Home</PageTitle>
       <HeroBanner />
       <Gallery />
       <ShopByCategory />

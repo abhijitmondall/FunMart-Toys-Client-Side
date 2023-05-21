@@ -1,6 +1,6 @@
 import Styles from "./Header.module.scss";
 import { IoIosMenu } from "react-icons/io";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
@@ -8,7 +8,7 @@ import Button from "../UI/Button/Button";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
-  const [isClicked, setIsClicked] = useState(false);
+  // const [isClicked, setIsClicked] = useState(false);
 
   const logoutHandler = () => {
     try {
@@ -18,14 +18,18 @@ const Header = () => {
     }
   };
 
-  const clickHandler = () => {
-    setIsClicked(!isClicked);
-  };
+  // const clickHandler = () => {
+  //   setIsClicked(!isClicked);
+  // };
 
   return (
     <header className={`${Styles["header"]} container`}>
       <div className={`${Styles["header__wrap"]}`}>
-        <Logo />
+        <div className={Styles["header__logo"]}>
+          <Link to="/">
+            <Logo />
+          </Link>
+        </div>
 
         <nav className={Styles["header__nav"]}>
           <ul className={Styles["header__nav-lists"]}>
@@ -99,17 +103,6 @@ const Header = () => {
             <li
               className={`${Styles["header__nav-item"]} ${Styles["header__login-btn"]}`}
             >
-              {/* <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${Styles["header__nav-link-active"]}`
-                    : `${Styles["header__nav-link"]}`
-                }
-              >
-                Login
-              </NavLink> */}
-
               {user ? (
                 <div className={Styles["header__user-wrap"]}>
                   <img

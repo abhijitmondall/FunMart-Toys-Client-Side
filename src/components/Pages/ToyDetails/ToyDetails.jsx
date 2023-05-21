@@ -4,6 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import StarRatings from "react-star-ratings";
 import Button from "../../UI/Button/Button";
+import PageTitle from "../../PageTitle/PageTitle";
 
 const ToyDetails = () => {
   const data = useLoaderData();
@@ -21,6 +22,8 @@ const ToyDetails = () => {
 
   return (
     <section className={`${Styles["toyDetails"]} container`}>
+      <PageTitle>FunMart Toys | Toy Details</PageTitle>
+
       <div className={Styles["toyDetails__wrap"]}>
         <div className={Styles["toyDetails__toy-details"]}>
           <figure className={Styles["toyDetails__img-wrap"]}>
