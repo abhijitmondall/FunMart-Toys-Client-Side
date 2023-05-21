@@ -12,6 +12,7 @@
   &__tabs-title-wrap {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 3rem;
     margin-bottom: 6rem;
     list-style: none;
@@ -31,5 +32,11 @@
     display: grid !important;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 3rem;
+
+    @media (max-width: 62.5em) {
+      width: 80%;
+      margin: 0 auto;
+      grid-template-columns: 1fr;
+    }
   }
 }

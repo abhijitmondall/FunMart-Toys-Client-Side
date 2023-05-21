@@ -5,6 +5,10 @@
   border-bottom-left-radius: var(--radius-1x);
   border-bottom-right-radius: var(--radius-1x);
 
+  @media (max-width: 62.5em) {
+    border-radius: 0;
+  }
+
   &__container {
     color: var(--color-grey-light-1);
     padding: 3.2rem;
@@ -12,6 +16,11 @@
     border-bottom-right-radius: var(--radius-1x);
     margin-bottom: 15rem;
     padding-top: 9rem;
+
+    @media (max-width: 62.5em) {
+      border-radius: 0;
+      margin-bottom: 0rem;
+    }
   }
 
   &__wrap {

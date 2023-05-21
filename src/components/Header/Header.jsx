@@ -1,14 +1,15 @@
 import Styles from "./Header.module.scss";
-import { IoIosMenu } from "react-icons/io";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import Button from "../UI/Button/Button";
+import { GiCrossedSwords } from "react-icons/gi";
+import { HiMenu } from "react-icons/hi";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
-  // const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   const logoutHandler = () => {
     try {
@@ -18,9 +19,9 @@ const Header = () => {
     }
   };
 
-  // const clickHandler = () => {
-  //   setIsClicked(!isClicked);
-  // };
+  const clickHandler = () => {
+    setIsClicked(!isClicked);
+  };
 
   return (
     <header className={`${Styles["header"]} container`}>
@@ -31,8 +32,12 @@ const Header = () => {
           </Link>
         </div>
 
-        <nav className={Styles["header__nav"]}>
-          <ul className={Styles["header__nav-lists"]}>
+        <nav className={`${Styles["header__nav"]}`}>
+          <ul
+            className={`${Styles["header__nav-lists"]} ${
+              isClicked && Styles["header__nav-lists-active"]
+            }`}
+          >
             <li className={Styles["header__nav-item"]}>
               <NavLink
                 to="/"
@@ -130,37 +135,14 @@ const Header = () => {
               )}
             </li>
           </ul>
-          {/* <button className={Styles["header__btn"]}>
-            <IoIosMenu />
-          </button> */}
 
-          {/* <div className={Styles["header__user"]}>
-            {user ? (
-              <div className={Styles["header__user-wrap"]}>
-                <img
-                  title={user?.displayName || ""}
-                  src={user.photoURL}
-                  alt=""
-                  className={Styles["header__user-photo"]}
-                />
-
-                <div className={Styles["logout-btn"]}>
-                  <Button btnObj={{ onClick: logoutHandler }}>Logout</Button>
-                </div>
-              </div>
+          <figure onClick={clickHandler} className={Styles["mobile"]}>
+            {isClicked ? (
+              <GiCrossedSwords className={Styles["mobile__icon"]} />
             ) : (
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${Styles["header__link-active"]}`
-                    : `${Styles["header__link"]}`
-                }
-              >
-                Login
-              </NavLink>
+              <HiMenu className={Styles["mobile__icon"]} />
             )}
-          </div> */}
+          </figure>
         </nav>
       </div>
     </header>

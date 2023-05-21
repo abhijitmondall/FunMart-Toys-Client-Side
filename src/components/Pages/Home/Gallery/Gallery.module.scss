@@ -21,6 +21,11 @@
       grid-template-columns: repeat(3, max-content);
       justify-content: center;
       align-items: center;
+
+      @media (max-width: 62.5em) {
+        width: 100%;
+        grid-template-columns: 1fr;
+      }
     }
 
     img {
@@ -32,6 +37,13 @@
       border: 0.6rem solid var(--color-secondary);
       margin: 0.5rem;
       border-radius: var(--radius);
+
+      @media (max-width: 62.5em) {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        margin: 1.6rem auto;
+      }
     }
   }
 }

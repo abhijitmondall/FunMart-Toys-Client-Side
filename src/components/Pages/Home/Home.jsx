@@ -10,7 +10,6 @@ import "aos/dist/aos.css";
 
 const Home = () => {
   AOS.init({
-    disable: "mobile",
     offset: 200,
     duration: 1200,
     easing: "ease-in-out-back",

@@ -9,6 +9,10 @@
     justify-content: center;
     grid-gap: 10rem;
     padding: 3.2rem;
+
+    @media (max-width: 62.5em) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__info {
@@ -20,6 +24,10 @@
 
     &--2 {
       border-right: 2px dashed #ff74b1;
+    }
+
+    @media (max-width: 62.5em) {
+      border: none;
     }
   }
 
