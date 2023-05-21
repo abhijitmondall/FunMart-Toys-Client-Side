@@ -1,4 +1,3 @@
-import React from "react";
 import Styles from "./Input.module.scss";
 
 const Input = ({ inputObj }) => {
