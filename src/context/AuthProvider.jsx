@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 import {
-  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -20,7 +19,6 @@ const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   const googleProvider = new GoogleAuthProvider();
-  const gitHubProvider = new GithubAuthProvider();
 
   const login = async (email, pass) => {
     setLoading(true);
@@ -32,16 +30,6 @@ const AuthProvider = ({ children }) => {
       setLoading(true);
 
       return await signInWithPopup(auth, googleProvider);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  const loginWithGitHub = async () => {
-    try {
-      setLoading(true);
-      console.log(user);
-      return await signInWithPopup(auth, gitHubProvider);
     } catch (err) {
       setError(err.message);
     }
@@ -87,7 +75,6 @@ const AuthProvider = ({ children }) => {
     setError,
     error,
     loginWithGoogle,
-    loginWithGitHub,
   };
 
   return (

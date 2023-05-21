@@ -16,9 +16,9 @@ const ShopByCategory = () => {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      // if([''])
+
       const data = await useFetch(
-        `toys?fields=toyPicture,toyName,price,ratings,subCategory&subCategory=${subCategory}`
+        `toys?fields=toyPicture,toyName,price,ratings,subCategory&subCategory=${subCategory}&limit=8`
       );
 
       setToys(data.toys);
