@@ -5,6 +5,7 @@ import Toys from "./Toys/Toys";
 import Spinner from "../../Spinner/Spinner";
 import { AuthContext } from "../../../context/AuthProvider";
 import Icons from "./../../../assets/icons.svg";
+import SectionTitle from "../../SectionTitle/SectionTitle";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
@@ -27,11 +28,15 @@ const AllToys = () => {
 
     const form = e.target;
     setToyName(form.search.value);
+    form.reset();
   };
 
   return (
     <section className={`${Styles["toys"]} container`}>
       <div className={Styles["toys__wrap"]}>
+        <SectionTitle className={{ className: `${Styles["toys__title"]}` }}>
+          All Toys
+        </SectionTitle>
         <form onSubmit={handleToysSearch} className={Styles["search"]}>
           <input
             type="text"

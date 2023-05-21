@@ -1,12 +1,16 @@
 .toys {
   background: var(--color-white) !important;
+
   &__wrap {
-    padding: 6rem 0;
+    padding: 9rem 0;
+  }
+
+  &__title {
+    background: var(--color-white);
   }
 
   &__lists-header {
     font-size: var(--text-1x);
-    // text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     background: var(--bg-gradient);
@@ -29,8 +33,7 @@
   // Search
   .search {
     width: 50%;
-    margin: 3rem auto;
-    margin-bottom: 6rem;
+    margin: 6rem auto;
     flex: 0 0 40%;
     display: flex;
     align-items: center;
@@ -43,11 +46,11 @@
     &__input {
       font-family: inherit;
       font-size: var(--text-1x);
-      font-weight: 600;
+      font-weight: bold;
       color: var(--color-grey-dark-1);
       background-color: var(--color-grey-light-2);
       border: none;
-      padding: 1rem 2rem;
+      padding: 1.2rem 2.4rem;
       border-radius: 100px;
       width: 90%;
       transition: all 0.2s;
@@ -80,8 +83,8 @@
     }
 
     &__icon {
-      height: 2.25rem;
-      width: 2.25rem;
+      height: 2.7rem;
+      width: 2.7rem;
       fill: var(--color-grey-dark-3);
     }
   }

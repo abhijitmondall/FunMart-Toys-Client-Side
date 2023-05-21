@@ -3,4 +3,12 @@
   &__wrap {
     padding: 9rem 0;
   }
+
+  &__title {
+    background-color: var(--color-grey-light-3);
+  }
+
+  &__form {
+    margin-top: 6rem;
+  }
 }
