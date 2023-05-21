@@ -44,6 +44,7 @@
     position: absolute;
     top: 48rem;
     left: 26%;
+    -webkit-transform: translate(-26%, -50%) skewY(-7deg);
     transform: translate(-26%, -50%) skewY(-7deg);
     color: #fff;
     text-align: center;
@@ -53,6 +54,7 @@
       width: 60%;
       top: 50%;
       left: 50%;
+      -webkit-transform: translate(-50%, -50%) skewY(-7deg);
       transform: translate(-50%, -50%) skewY(-7deg);
     }
 
