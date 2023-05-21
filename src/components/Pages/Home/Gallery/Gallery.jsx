@@ -24,7 +24,7 @@ const Gallery = () => {
         <div className={Styles["gallery__images"]}>
           <LightGallery speed={500}>
             {toyInfo.map((el) => (
-              <a key={el._id} href={el.toyPicture}>
+              <a key={el._id} href={el.toyPicture} data-aos="zoom-in">
                 <img alt={el.toyName} src={el.toyPicture} />
               </a>
             ))}

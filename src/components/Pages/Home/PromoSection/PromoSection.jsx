@@ -7,7 +7,10 @@ const PromoSection = () => {
   return (
     <section className={`${Styles["promo"]} container`}>
       <div className={Styles["promo__wrap"]}>
-        <div className={`${Styles["promo__info"]} ${Styles["promo__info--1"]}`}>
+        <div
+          className={`${Styles["promo__info"]} ${Styles["promo__info--1"]}`}
+          data-aos="fade-right"
+        >
           <div className={`${Styles["promo__fig"]} ${Styles["promo__fig--1"]}`}>
             <MdLocalShipping />
           </div>
@@ -20,7 +23,10 @@ const PromoSection = () => {
           </div>
         </div>
 
-        <div className={`${Styles["promo__info"]} ${Styles["promo__info--2"]}`}>
+        <div
+          className={`${Styles["promo__info"]} ${Styles["promo__info--2"]}`}
+          data-aos="fade-up"
+        >
           <div className={`${Styles["promo__fig"]} ${Styles["promo__fig--2"]}`}>
             <TbTruckReturn />
           </div>
@@ -32,7 +38,10 @@ const PromoSection = () => {
           </div>
         </div>
 
-        <div className={`${Styles["promo__info"]} ${Styles["promo__info--3"]}`}>
+        <div
+          className={`${Styles["promo__info"]} ${Styles["promo__info--3"]}`}
+          data-aos="fade-left"
+        >
           <div className={`${Styles["promo__fig"]} ${Styles["promo__fig--3"]}`}>
             <FaGift />
           </div>

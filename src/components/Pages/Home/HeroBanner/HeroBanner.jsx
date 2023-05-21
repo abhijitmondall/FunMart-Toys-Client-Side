@@ -12,7 +12,7 @@ const HeroBanner = () => {
         </figure>
 
         <div className={Styles["hero__content"]}>
-          <h1 className={Styles["hero__title"]}>
+          <h1 className={Styles["hero__title"]} data-aos="fade-down">
             <span>
               Fuel Your Child's Imagination with Toy Cars at FunMart Toys!
             </span>
